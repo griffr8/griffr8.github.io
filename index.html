@@ -1,34 +1,280 @@
 <!doctype html>
 <html lang="en">
   <head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-45676523-6"></script>
+      
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-45676523-6');
+</script>
+-->
+      
+    <title>Game Timer</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-
-    <title>Hockey Stats Tracker - Coach Steve</title>
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css"> 
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/toi.app.css">
   </head>
   <body>
-    <h1>Hello, world!</h1>
+   
+<!-- 
+
+HOME
+
+-->
+<div id="page_home" class="page">
+  
+
+    <div class="vhcentered">
+  <div class="container text-center">
+<!--    <img src="/img/peluu_logo_blue.png" class="img-responsive"> -->
+      <h2>Time-On-Ice</h2>
+
+
+      <div class="row">
+
+        <div class="col">TOI is an app for tracking players' time on the field. Works any team sport with line shifts.</div>
+      </div>
+
+       <div class="row">
+        <div class="col">
+          <button class="btn btn-lg btn-info" id="new_game" ref="page_players">ADD PLAYERS</button>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div> <!-- container -->
+</div>
+
+<!-- 
+
+TIMER
+
+-->
+<div id="page_timer" class="page" disabled>
+
+<div class="container">
+  <div id="periodcounter">Period: <span class="periodnum">1</span></div>
+<div id="timer">
+	<div class="row">
+			<div class="col mr-auto time">00:00
+				</div>
+			<div class="col timecontrols ml-auto text-right">
+
+<!--				<button class="btn btn-md watch_button_mode_reload" id="watch_reload">
+            <span class="oi oi-media-step-forward" title="Next period" aria-hidden="true"></span>
+				</button> 
+-->        
+
+				<button class="btn btn-md watch_button_mode_reload" id="watch_reload">
+            Next period
+				</button> 
+
+<!--
+<button class="btn btn-md watch_button_mode_pause" id="watch_start">
+            <span class="oi oi-media-play" title="Play / pause" aria-hidden="true"></span>
+        </button>
+-->
+<button class="btn btn-md watch_button_mode_pause" id="watch_start">
+            Play/Pause
+        </button>
+
+
+      </div>
+	</div>
+</div>
+
+<div class="players">
+	<div class="row"></div>
+</div>
+
+<div class="notification">
+Add players before starting the timer.
+	</div>
+
+
+
+</div> <!-- container -->
+
+</div>
+
+
+
+
+
+<!-- 
+
+STATISTICS
+
+-->
+<div id="page_stats" class="page">
+<div class="container">
+
+<h2>Game statistics</h2>
+
+<table class="table table-striped">
+  <tr><td>Game started</td><td><span class="stat_gamestarted"></span></td></tr>
+  <tr><td>Game paused</td><td><span class="stat_pauses">0</span> times</td></tr>
+  
+  <tr><td>Most time on game</td><td><span class="stat_mosttime">00:00 (#88)</span></td></tr>
+  <tr><td>Least time on game</td><td><span class="stat_leasttime">00:00 (#88)</span></td></tr>
+</table>
+
+<h3>Player statistics</h3> 
+<table class="table table-striped" id="player_stat_table"></table>
+
+<!--
+<h3>Save game</h3>
+<p>Upgrade to Pro for an option to save to database.</p>
+-->
+</div> <!-- container -->
+      
+</div>
+
+
+
+
+
+<!-- 
+
+PLAYERS
+
+-->
+<div id="page_players" class="page">
+<div class="container">
+
+<h2>Players</h2>
+
+<p class="small">Add players and when finished, move to the Timer tab. Edit player number by clicking. Players will be sorted based on the number.</p>
+
+<div class="players">
+  <div class="row playerrow">
+
+    <div class="w-100"></div>
+    
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="addplayerbox">
+        <button class="addplayer btn btn-info">ADD A PLAYER</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+  NAVBAR 
+-->
+<nav class="toolbar-nav">
+ 
+    <div class="row">
+      <div class="col active text-center" ref="page_home"><br><h4>Home</h4></div>
+      <div class="col text-center" ref="page_players"><br><h4>Players</h4></div>
+      <div class="col text-center" ref="page_timer"><br><h4>Timer</h4></div>
+      <div class="col text-center" ref="page_stats"><br><h4>Stats</h4></div>
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+<div id="template" class="hidden">
+
+
+
+
+  <div class="col-3 colitem playeritem">	
+	<div class="playerbox"> 
+		<input type="tel" class="playernumber" value="88" >
+		<div class="playertime">00:00</div>
+	</div>
+  </div>
+
+
+
+
+
+
+</div>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="game_help">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">How to use</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        
+      </div>
+      <div class="modal-body">
+        <h4>Set players "on ice"</h4>
+        <p>Click a player when on ice. The box turns blue. Click again to deselect. You can do this while the timer is running.</p>
+
+        <h4>The clock and periods</h4>
+        <p>Click play icon to start timer. Click again to pause. Click the period end button to change period.</p>
+
+        <h4>Save stats</h4>
+        <p>When game is paused, you can save the statistics.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
 
     <!-- Optional JavaScript -->
-    <script src="./js/bootstrap.min.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    <div class="alert alert-primary" role="alert">
-  A simple primary alert—check it out!
-</div>
-<div class="alert alert-light" role="alert">
-  A simple light alert—check it out!
-</div>
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
+<!--      
+    <script src="/js/jquery.1.9.1.js" ></script>
+    <script src="js/popper.min.js" ></script>
+    <script src="js/bootstrap.min.js"></script>
+-->      
+      
+  
+    <script src="js/worker-timer.js" ></script>
+    <script src="js/peluuui.js" ></script>
+    <script src="js/gametimer.js" ></script>
   </body>
 </html>
