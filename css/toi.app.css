@@ -1,0 +1,102 @@
+
+body,html { width:100%; min-height:100%;}
+body {margin:0; padding:5px;}
+
+
+h3 {margin-top:20px;}
+
+
+h2,h3 {color:#31b0d5;}
+
+#template {display: none;}
+.page {display: none; padding-bottom:150px; min-height:100%;}
+#page_home {display: block}
+
+
+/*
+
+  HOME
+
+*/
+
+.vhcentered {position: absolute; top:50%; left:50%; transform:translate(-50%, -50%);}
+#new_game {margin:20px 0;}
+
+
+/*
+
+  TIMER
+
+*/
+#timer {}
+.time {font-size:30px}
+
+
+#page_players .playertime {display: none;}
+#page_players .playernumbertxt {display: none}
+
+#periodcounter {font-size: 8px; margin-bottom: -8px}
+
+/*
+
+  PLAYERS
+
+*/
+
+.colitem {padding-left:5px; padding-right:5px; margin-bottom:10px;}
+.playerbox {padding:4px; font-size:30px; border-radius: 6px; border:1px solid #ddd; text-align: center; position: relative;}
+.playeritem {position: relative;}
+
+
+.addplayerbox {margin-bottom:40px; display: inline-block;}
+
+.playernumber {width: 100%; text-align: center;  line-height: 20px; border:0;}
+.playertime {font-size:11px;}
+
+#page_timer .playernumber {pointer-events: none}
+
+#page_timer .playeritem {cursor: pointer;}
+#page_timer .playeritem.active .playerbox,
+#page_timer .playeritem.active .playerbox input {background:#b1dbed;}
+#page_timer .players {margin-top:5px;}
+
+.settings-box {margin-bottom:20px;}
+
+
+/*
+
+  TOOLBAR
+
+*/
+.toolbar-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ddd; 
+  font-size:10px;
+}
+.toolbar-nav img {width:30px; height:30px; padding:10px 0 0; margin:0 auto; display: block}
+.toolbar-nav .col.active {background: #aaa; }
+.toolbar-nav .xsmall {font-size:10px;}
+
+.timecontrols button {color:#fff; font-weight: bold; }
+
+.watch_button_mode_pause { background:#31b0d5; }
+.watch_button_mode_playing {background:#DB4538;}
+.watch_button_mode_reload { background:#31b0d5; }
+
+/*
+FORMS
+*/
+
+
+
+
+
+
+
+/*
+UI
+*/
+.save-info {display: none;}
